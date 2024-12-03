@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body>
+<!-- HERO SECTION START -->
+<header class="">
+    <nav x-data="{ isOpen: false }"  class="border-b dark:border-gray-700">
+        <div class="container px-6 py-6 mx-auto lg:flex lg:justify-between lg:items-center lg:fixed" style="background-color: rgba(255, 255, 255, 0.54);">
+            <div class="flex items-center justify-between">
+                <a href="#">
+                    <img class="h-20 w-auto ml-5 sm:h-7" src="assets/high denoise.png" alt="sl logo">
+                </a>
+                <h1 class="text-3xl font-leading text-black lg:ml-4 sm:ml-1">LOKESH. S</h1>
+
+                <!-- Mobile menu button -->
+                <div class="flex lg:hidden">
+                    <button x-cloak @click="isOpen = !isOpen" type="button" class="text-black hover:text-gray-600 dark:hover:text-gray-400 focus:outline-none focus:text-gray-600 dark:focus:text-gray-400" aria-label="toggle menu">
+                        <svg x-show="!isOpen" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M4 8h16M4 16h16" />
+                        </svg>
+                
+                        <svg x-show="isOpen" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Menu open: "block", Menu closed: "hidden" -->
+            <div x-cloak :class="[isOpen ? 'translate-x-0 opacity-100 ' : 'opacity-0 -translate-x-full']" class="absolute inset-x-0 w-full px-6 py-4 transition-all duration-300 ease-in-out bg-white shadow-md lg:bg-transparent lg:dark:bg-transparent lg:shadow-none lg:mt-0 lg:p-0 lg:top-0 lg:relative lg:w-auto lg:opacity-100 lg:translate-x-0 lg:flex lg:items-center" style="z-index: 100000;">
+                <div class="flex flex-col space-y-8 lg:flex-row lg:items-center lg:space-y-0 lg:-px-8">
+                    <a class="block font-medium text-gray-700  lg:mx-8 hover:text-gray-900 dark:hover:text-blue-500 " href="index.html">Home</a>
+                    <a class="block font-medium text-gray-700  lg:mx-8 hover:text-gray-900 dark:hover:text-blue-500 " href="#aboutme">About Me</a>
+                    <a class="block font-medium text-gray-700  lg:mx-8 hover:text-gray-900 dark:hover:text-blue-500 " href="#myprojects">Projects</a>
+                    <a class="block font-medium text-gray-700  lg:mx-8 hover:text-gray-900 dark:hover:text-blue-500 " href="#contactme">Contact</a>
+                    <a class="block font-medium text-gray-700  lg:mx-8 hover:text-gray-900 dark:hover:text-blue-500 " href="#Academia">Academics</a>
+
+                    <button class="flex items-center justify-center px-5 py-2 text-sm font-medium tracking-wide text-center text-white capitalize transition-colors duration-300 transform bg-blue-500 rounded-lg hover:bg-blue-500 hover:shadow-md focus:outline-none focus:bg-gray-600" onclick="openNewsletterPopup();">
+                        Download CV
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="container px-6 py-16 mx-auto">
+        <div class="items-center lg:flex">
+            <div class="w-full lg:w-1/2">
+                <div class="lg:max-w-lg ml-8">
+                    <h1 class="text-blue-500 text-2xl">Hey There 👋 I am </h1> <br>
+                    <h1 class="text-3xl font-semibold text-gray-800 lg:text-4xl mb-3">Lokesh S</h1>
+                    <h1 class="text-3xl font-semibold text-gray-800 lg:text-4xl">Web <span class="text-blue-500 animate__animated animate__fadeInDownBig" id="roles_role"></span></h1>
+                    
+                    <p class="mt-3 text-gray-600 dark:text-gray-400 capitalize">Hey ther i am lokesh.S based from India. i am enthusiastic person with graduation being completed in computer science application background as my core, i hereby present you with my current portfolio site.</p>
+                    
+                    <a href="#contactme">   <button class="w-full px-5 py-3 mt-6 text-sm font-bold tracking-wider text-white transition-colors duration-300 transform bg-blue-600 rounded-full lg:w-auto hover:shadow-md hover:bg-blue-400">Contact Me</button></a>
+                  <a href="#aboutme"><button class="w-full px-5 py-3 mt-6 text-sm font-bold text-white transition-colors duration-300 transform bg-black rounded-full lg:w-auto hover:shadow-md hover:bg-black-400">Learn More</button> </a>
+                </div>
+            </div>
+
+            <div class="flex items-center justify-center w-full mt-6 lg:mt-0 lg:w-1/2">
+                <img class="w-full h-full lg:max-w-3xl pt-10 pb-10 " src="assets/undraw_hello_re_3evm.svg" alt="Catalogue-pana.svg">
+            </div>
+        </div>
+    </div>
+</header>
+
+<script>
+    var strings = [
+      "Designer",
+      "Developer",
+      "More",
+    ];
+
+    var currentIndex = 0;
+    var displayElement = document.getElementById("roles_role");
+
+    function scrollStrings() {
+      displayElement.textContent = strings[currentIndex];
+
+      currentIndex = (currentIndex + 1) % strings.length;
+    }
+
+    scrollStrings();
+
+    setInterval(scrollStrings, 1000);
+  </script>
+<!-- HERO SECTION END -->
+
+
+
+
+
+
+<!-- SECOND SECTION START -->
+<section class="bg-white" id="aboutme">
+    <div class="container grid grid-cols-1 gap-8 px-4 py-12 mx-auto lg:grid-cols-2">
+        <div class="flex flex-col max-w-lg mx-auto">
+            <h2 class="text-2xl font-bold tracking-tight text-blue-600"> ABOUT ME</h2>
+            <h2 class="text-5xl font-bold tracking-tight text-black mt-5">Happy Deisgn, <br> Happy Customers</h2>
+
+            <p class="mt-4 text-gray-500 capitalize">i highly believe that asthetic design of site will convert visitor to customer and i also stronglly agree that the current frontend developer market is very limiited to an extent of copy past designs. </p>
+        </div>
+
+        <div class="flex flex-col max-w-lg mx-auto ">
+            <h2 class="text-3xl font-semibold tracking-tight text-gray-800">
+                Connect With Me
+            </h2>
+
+            <p class="mt-3 text-gray-500 capitalize">Below Are Some of my social media handles where you can get in touch with me. else just scroll down and fill the form i shall revert back to asap. </p>
+
+            <div class="flex mt-2 text-gray-500">
+                <a href="https://www.facebook.com"><i class="bi bi-facebook" style="font-size: 2rem;"></i></a>
+               <a href="https://www.twitter.com"><i class="bi bi-twitter-x ml-2" style="font-size: 2rem;"></i></a>
+               <a href="https://www.github.com/lokesh-repository"><i class="bi bi-github ml-2" style="font-size: 2rem;"></i></a>
+                <a href="https://www.linkedin.com"><i class="bi bi-linkedin ml-2" style="font-size: 2rem;"></i></a>
+               <a href="https://www.youtube.com"><i class="bi bi-youtube ml-2" style="font-size: 2rem;"></i></a>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- SECOND SECTION END -->
+
+
+
+<div class="container mx-auto px-12">
+    <hr class="border-t border-gray-200 my-10">
+</div>
+
+
+
+
+
+<!-- THIRD SECTION START -->
+<section class="bg-white">
+    <div class="container px-6 py-10 mx-auto">
+        <h1 class="text-sm font-bold text-center text-blue-500 capitalize lg:text-3xl ">What I Can Do?</h1>
+        <h1 class="text-3xl font-bold text-center text-gray-800 capitalize lg:text-5xl my-2">My Services</h1>
+
+        <p class="max-w-2xl mx-auto my-6 text-center text-gray-600 capitalize">
+            Below Are Some Of The Services that i can offer you at my best.however below are those in which i can score 99 on 100.rest assured i try my best be as good as possible qually in other topics also.
+        </p>
+
+        <div class="grid grid-cols-1 gap-8 mt-8 xl:mt-16 md:grid-cols-2 xl:grid-cols-4">
+            <div class="flex flex-col items-center p-8 transition-colors duration-300 transform shadow-md cursor-pointer rounded-xl hover:border-transparent group hover:bg-blue-600 dark:border-gray-700 dark:hover:border-transparent">
+                <img class="object-cover w-32 h-32" src="https://img.icons8.com/color/96/crop--v1.png" alt="crop--v1"/>
+                <h1 class="mt-4 text-2xl font-semibold text-black capitalize  group-hover:text-white">Appealing Visuals</h1>
+                <p class="mt-2 text-gray-500 font-semibold text-center items-center group-hover:text-white">As Said Earlier Good Appealing Visuals Always Helps With Customer Retention Or Lead Conversion.</p>
+            </div>
+
+            <div class="flex flex-col items-center p-8 transition-colors duration-300 transform shadow-md cursor-pointer rounded-xl hover:border-transparent group hover:bg-blue-600 dark:border-gray-700 dark:hover:border-transparent">
+                <img class="object-cover w-32 h-32" src="https://img.icons8.com/fluency/96/search.png" alt="">
+                <h1 class="mt-4 text-2xl font-semibold text-black capitalize  group-hover:text-white">User Specific Research</h1>
+                <p class="mt-2 text-gray-500 font-semibold text-center items-center group-hover:text-white">Doing User Specific Research Is Not An Easy Go To Do Task Before Building Any SIte.No AI Can Do That Other An Human To Human.</p>
+            </div>
+
+            <div class="flex flex-col items-center p-8 transition-colors duration-300 transform shadow-md cursor-pointer rounded-xl hover:border-transparent group hover:bg-blue-600 dark:border-gray-700 dark:hover:border-transparent">
+                <img class="object-cover w-32 h-32" src="https://img.icons8.com/fluency/96/prototype.png" alt="">
+                <h1 class="mt-4 text-2xl font-semibold text-black capitalize  group-hover:text-white">Prototype First Approach</h1>
+                <p class="mt-2 text-gray-500 font-semibold text-center items-center group-hover:text-white">Got Many Rejections Ahead Or More Unbearable Changes In The Design No Propblems. I Got Your Back.</p>
+            </div>
+
+            <div class="flex flex-col items-center p-8 transition-colors duration-300 transform shadow-md cursor-pointer rounded-xl hover:border-transparent group hover:bg-blue-600 dark:border-gray-700 dark:hover:border-transparent">
+                <img class="object-cover w-32 h-32" src="https://img.icons8.com/fluency/96/000000/scroll.png" alt="">
+                <h1 class="mt-4 text-2xl font-semibold text-black capitalize  group-hover:text-white">Better Test Cases</h1>
+                <p class="mt-2 text-gray-500 font-semibold text-center items-center group-hover:text-white">Only Just A Design Is Not At All Helpfull But A Better Test Case And A Best Testing Team Can Only Build A Better Site.</p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- THIRD SECTION END -->
+
+
+
+
+
+<!-- FOURTH SECTION START -->
+<section class="my-20" style="background-color: #f8f9ff;" id="myprojects">
+        <div class="container px-6 py-8">
+            <h2 class="text-3xl font-bold text-center text-gray-800 capitalize text-blue-600 mx-8 my-10">My Latest Works</h2>
+    
+            <div class="grid gap-8 mt-8 lg:grid-cols-2 sm:grid-cols-1 items-center mx-8">
+                <div class=" text-center">
+                  <a href="http://www.wesoft.rf.gd"> <img class="object-cover object-center w-full h-72 mx-auto rounded-lg" src="assets/WESOFT.png" alt="avatar" /> </a>
+    
+                    <div class="mt-2">
+                        <h3 class="text-lg font-medium text-gray-700 ">WeSoft</h3>
+                    </div>
+                </div>
+    
+                <div class=" text-center">
+                  <a href="http://edutrue.rf.gd">  <img class="object-cover object-center w-full h-72 mx-auto rounded-lg" src="assets/EDUTRUE.png" alt="avatar" /> </a>
+    
+                    <div class="mt-2">
+                        <h3 class="text-lg font-medium text-gray-700 ">EduTrue</h3>
+                    </div>
+                </div>
+    
+                <div class=" text-center">
+                  <a href="https://lokesh-repository.github.io/Windoss/"> <img class="object-cover object-center w-full h-72 mx-auto rounded-lg" src="assets/WINDOSS.png" alt="windoss" /></a>  
+    
+                    <div class="mt-2">
+                        <h3 class="text-lg font-medium text-gray-700 ">Windoss</h3>
+                    </div>
+                </div>
+    
+                <div class=" text-center">
+                    <img class="object-cover object-center w-full h-72 mx-auto rounded-lg" src="https://cdn.pixabay.com/photo/2017/08/04/05/41/coming-soon-2579129_1280.jpg" alt="avatar" />
+    
+                    <div class="mt-2">
+                        <h3 class="text-lg font-medium text-gray-700 ">Shop360</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+</section>
+<!-- FOURTH SECTION END -->
+
+
+
+<!-- FIFTH SECTION START -->
+<div class="container py-5" style="background-color: #090E34;">
+    <div class="container m-auto space-y-8 md:px-12 lg:px-56">
+        <div class="m-auto text-center w-6/12 flex">
+            <h2 class="text-2xl text-white font-bold lg:justify-center p-8 md:text-4xl">Currentlly Learning:</h2>
+        </div>
+        <div class="grid grid-cols-2 gap-8 sm:grid-cols-1 md:grid-cols-4 items-center text-center">
+            <div class="p-4 sm:text-sm lg:text-2xl flex">
+                <img src="assets/bootstrap-4-logo-svgrepo-com.svg" height="50" width="50" alt="bootstrap">
+                <p class="text-white my-4 font-bold">&nbsp;Bootstrap</p>
+            </div>
+            <div class="lg:p-4 sm:text-sm lg:text-2xl flex">
+                <img src="assets/tailwindcss-icon-svgrepo-com.svg" height="50" width="50" alt="tailwindcss">
+                <p class="text-white my-4 font-bold">&nbsp;TailWindCSS</p>
+            </div>
+            <div class="p-4 sm:text-sm lg:text-2xl flex">
+                <img src="assets/asp-svgrepo-com.svg" height="50" width="50" alt="asp.net">
+                <p class="text-white my-4 font-bold">&nbsp;Asp .NET</p>
+            </div>
+            <div class="lg:p-4 sm:text-sm lg:text-2xl flex">
+                <img src="assets/javascript-svgrepo-com.svg" height="50" width="50" alt="javascript">
+                <p class="text-white my-4 font-bold">&nbsp;JavaScript</p>
+            </div>
+            <div class="p-4 sm:text-sm lg:text-2xl flex">
+                <img src="assets/office-1-logo-svgrepo-com.svg" height="50" width="50" alt="ms office">
+                <p class="text-white my-4 font-bold">&nbsp;Office 365</p>
+            </div>
+            <div class="lg:p-4 sm:text-sm lg:text-2xl flex">
+                <img src="assets/php-svgrepo-com.svg" height="50" width="50" alt="PHP">
+                <p class="text-white my-4 font-bold">&nbsp;PHP</p>
+            </div>
+            <div class="p-4 sm:text-sm lg:text-2xl flex">
+                <img src="assets/sql-svgrepo-com.svg" height="50" width="50" alt="SQL">
+                <p class="text-white my-4 font-bold">&nbsp;SQL</p>
+            </div>
+            <div class="lg:p-4 sm:text-sm lg:text-2xl flex">
+                <img src="assets/java-logo-svgrepo-com.svg" height="50" width="50" alt="Java">
+                <p class="text-white my-4 font-bold">&nbsp;Java</p>
+            </div>
+            <div class="p-4 sm:text-sm lg:text-2xl flex">
+                <img src="assets/c-plusplus-svgrepo-com.svg" height="50" width="50" alt="C++">
+                <p class="text-white my-4 font-bol">&nbsp;C++</p>
+            </div>
+        </div>
+    </div>
+
+
+        <center>
+            <div class="px-5 py-10 rounded-lg bg-blue-500 lg:mx-64 my-16">
+                <div class="mt-2">
+                    <h3 class="text-white text-2xl font-bold">Wanna Suggest Me To Learn Something New?</h3>
+                </div>
+        
+            <div class="mt-5">
+                <form action="submit_suggestion.php" method="post" class="flex lg:mx-72">
+                    <input type="email" name="submitsuggestion" class="block mx-5 rounded-lg" required placeholder="Enter Your Email!">
+                    <button class="bg-white lg:ml-5 px-5 py-2 rounded-full text-blue-500 font-semibold capitalize"> Submit </button>
+                </form>
+            </div>
+            </div>
+        </center>
+</div>
+<!-- FIFT SECTION END -->
+
+
+<!-- SIXTH SECTION START -->
+<center><h3 class="font-bold text-blue-500 text-3xl items-center mt-10" id="Academia">My Academics</h3></center>
+<ol class="flex flex-wrap px-10 py-20 sm:row-4">
+    <li class="relative w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 mb-6 sm:mb-0">
+        <div class="flex items-center">
+            <div class="flex items-center justify-center w-6 h-6 rounded-full ring-0 ring-white sm:ring-8 shrink-0">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125" />
+                  </svg>
+            </div>
+            <div class="hidden sm:flex w-full bg-gray-200 h-0.5"></div>
+        </div>
+        <div class="mt-3 sm:pe-8">
+            <h3 class="text-lg font-semibold text-gray-900">St.Dominic's School</h3>
+            <time class="block mb-2 text-sm font-normal leading-none text-gray-400">March 2018 | ICSE</time>
+            <p class="text-base font-normal text-gray-500 capitalize">learn't a comprehensive curriculum covering Core subjects, focusing on holistic development and critical thinking skills essential for academic excellence and future success.</p>
+        </div>
+    </li>
+    <li class="relative w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 mb-6 sm:mb-0">
+        <div class="flex items-center">
+            <div class="flex items-center justify-center w-6 h-6 rounded-full ring-0 ring-white sm:ring-8 shrink-0">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3.75h.008v.008h-.008v-.008Zm0 3h.008v.008h-.008v-.008Zm0 3h.008v.008h-.008v-.008Z" />
+                  </svg>
+            </div>
+            <div class="hidden sm:flex w-full bg-gray-200 h-0.5"></div>
+        </div>
+        <div class="mt-3 sm:pe-8">
+            <h3 class="text-lg font-semibold text-gray-900">Sadhana PU College</h3>
+            <time class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">March 2020 | PUE Karnataka</time>
+            <p class="text-base font-normal text-gray-500 dark:text-gray-400 capitalize">This curriculum equips students with essential knowledge in financial accounting, business management, and basic computer skills, preparing them for further studies or careers in commerce-related fields.</p>
+        </div>
+    </li>
+    <li class="relative w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 mb-6 sm:mb-0">
+        <div class="flex items-center">
+            <div class="flex items-center justify-center w-6 h-6 rounded-full ring-0 ring-white sm:ring-8 shrink-0">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5" />
+                  </svg>
+            </div>
+            <div class="hidden sm:flex w-full bg-gray-200 h-0.5"></div>
+        </div>
+        <div class="mt-3 sm:pe-8">
+            <h3 class="text-lg font-semibold text-gray-900">Bangalore Institute Of Management Studies | BCA</h3>
+            <time class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">August 2023 | Bangalore University</time>
+            <p class="text-base font-normal text-gray-500 dark:text-gray-400 capitalize"> computer science fundamentals such as programming, data structures, and software development, preparing them for careers in IT industries with hands-on projects and practical skills.</p>
+        </div>
+    </li>
+    <li class="relative w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 mb-6 sm:mb-0">
+        <div class="flex items-center">
+            <div class="flex items-center justify-center w-6 h-6 rounded-full ring-0 ring-white sm:ring-8 shrink-0">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99" />
+                  </svg>
+            </div>
+            <div class="hidden sm:flex w-full bg-gray-200 h-0.5"></div>
+        </div>
+        <div class="mt-3 sm:pe-8">
+            <h3 class="text-lg font-semibold text-gray-900">JSS Academey Of Technical Education, Bangalore | MCA</h3>
+            <time class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">Pursuing | VTU (Belagavi)</time>
+            <p class="text-base font-normal text-gray-500 dark:text-gray-400 capitalize"> comprehensive knowledge and skills in computer science, covering areas such as software development, computer networks, database management, and information technology, preparing them for careers in the dynamic field of technology.</p>
+        </div>
+    </li>
+</ol>
+<!-- SIXTH SECTION END -->
+
+
+
+<div class="container mx-auto px-12">
+    <hr class="border-t border-gray-200 my-10">
+</div>
+
+
+
+<!-- SEVENTH SECTION START -->
+<section class="bg-white dark:bg-gray-900">
+    <div class="container px-6 py-10 mx-auto">
+        <div class="mt-6 md:flex md:items-center md:justify-between">
+            <div>
+                <h1 class="text-2xl font-semibold text-white capitalize lg:text-3xl ">
+                    Hear From My Friends
+                </h1>
+
+                <div class="flex mx-auto mt-6">
+                    <span class="inline-block w-40 h-1 bg-blue-500 rounded-full"></span>
+                    <span class="inline-block w-3 h-1 mx-1 bg-blue-500 rounded-full"></span>
+                    <span class="inline-block w-1 h-1 bg-blue-500 rounded-full"></span>
+                </div>
+            </div>
+        </div>
+
+        <section class="grid grid-cols-1 gap-8 mt-8 xl:mt-12 lg:grid-cols-2 xl:grid-cols-3">
+            <div class="p-8 border rounded-lg dark:border-gray-700">
+                <p class="leading-loose text-gray-500 dark:text-gray-400">
+                    “I request you to kindlly update this bois.”.
+                </p>
+
+                <div class="flex items-center mt-8 -mx-2">
+                    <img class="object-cover mx-2 rounded-full w-14 shrink-0 h-14 ring-4 ring-gray-300 dark:ring-gray-700" src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" alt="">
+
+                    <div class="mx-2">
+                        <h1 class="font-semibold text-gray-800 dark:text-white">Varun Kumar</h1>
+                        <span class="text-sm text-gray-500 dark:text-gray-400">Aspirant Tech Savy</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-8 bg-blue-500 border border-transparent rounded-lg dark:bg-blue-600">
+                <p class="leading-loose text-white">
+                    “Over the couple of years, I've had the pleasure of working closely with Lokesh, and I must say, he is an exceptional developer. His expertise in front-end and back-end development is impressive, and his dedication to delivering high-quality work is truly commendable. I highly recommend Lokesh for any development project.”.
+                </p>
+
+                <div class="flex items-center mt-8 -mx-2">
+                    <img class="object-cover mx-2 rounded-full w-14 shrink-0 h-14 ring-4 ring-blue-200" src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" alt="">
+
+                    <div class="mx-2">
+                        <h1 class="font-semibold text-white">Ujjwal Kumar</h1>
+                        <span class="text-sm text-blue-200">The Night Codey</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-8 border rounded-lg dark:border-gray-700">
+                <p class="leading-loose text-gray-500 dark:text-gray-400">
+                    “I request you to kindlly update this bois.”.
+                </p>
+
+                <div class="flex items-center mt-8 -mx-2">
+                    <img class="object-cover mx-2 rounded-full w-14 shrink-0 h-14 ring-4 ring-gray-300 dark:ring-gray-700" src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" alt="">
+
+                    <div class="mx-2">
+                        <h1 class="font-semibold text-gray-800 dark:text-white">Chiranjith Mukherjee</h1>
+                        <span class="text-sm text-gray-500 dark:text-gray-400">The ChatGPT + Gemini</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</section>
+<!-- SEVENTH SECTION END -->
+
+
+
+
+
+<!-- TENTH SECTION START -->
+<section id="contactme">
+   <center>
+    <h3 class="font-bold text-black text-3xl items-center mt-20">Have Something In Mind?</h3>
+    <h2 class="font-bold text-blue-500 text-2xl items-center mt-2">Contact Me</h2>
+   </center>
+    <div class="container items-center justify-center bg-white text-black my-10 ">
+        <form method="post" action="contactmeform.php" class="mt-12">
+            <div class="flex lg:mx-40">
+                <div class="flex-1 px-2">
+                    <input type="text" name="name" placeholder="Your Name" required class="block w-full px-5 py-3 mt-2 text-gray-700 rounded-md placeholder-gray-600  text-gray-400" />
+                </div>
+
+                <div class="flex-1 px-2  md:mt-0">
+                    <input type="text" name="companyname" placeholder="Company Name (Optional)" class="block w-full px-5 py-3 mt-2 text-gray-700 rounded-md placeholder-gray-600  text-gray-400" />
+                </div>
+            </div>
+
+            <div class="flex lg:mx-40">
+                <div class="flex-1 px-2">
+                    <input type="email" name="email" placeholder="Enter Your Email" required class="block w-full px-5 py-3 mt-2 text-gray-700 rounded-md placeholder-gray-600  text-gray-400" />
+                </div>
+
+                <div class="flex-1 px-2 md:mt-0">
+                    <input type="number" name="phonenumber" placeholder="Phone No (Optional)" class="block w-full px-5 py-3 mt-2 text-gray-700 rounded-md placeholder-gray-600 text-gray-400"/>
+                </div>
+            </div>
+
+            <div class="lg:mx-40 mt-4 sm:mx-4">
+                <textarea required name="message" class="block w-full h-32 px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md md:h-56 dark:placeholder-gray-600  dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="Message"></textarea>
+            </div>
+
+            <center>
+                <button class="px-10 py-4 font-bold mt-4 text-lg font-medium text-white capitalize rounded-full bg-blue-500">
+                    Contact Me
+                </button>
+            </center>
+        </form>
+    </div>
+</section>
+<!-- TENTH SECTION END -->
+
+
+
+
+<!-- FOOTER SECTION START -->
+<footer class="" style="background-color: #090E34;">
+    <div class="container px-6 py-8 mx-auto">
+        <div class="flex flex-col items-center text-center">
+            <a href="index.html">
+                <img class="w-12 h-12 bg-white rounded-full mx-8 my-8" src="assets/high denoise.png" alt="">
+            </a>
+
+            <div class="flex flex-wrap justify-center mt-6 -mx-4">
+                <a href="index.html" class="mx-4 text-lg text-white hover:text-blue-500"> Home </a>
+                
+                <a href="#aboutme" class="mx-4 text-lg text-white hover:text-blue-500"> About </a>
+                
+                <a href="#myprojects" class="mx-4 text-lg text-white hover:text-blue-500"> Projects </a>
+
+                <a href="#contactme" class="mx-4 text-lg text-white hover:text-blue-500"> Contact </a>
+
+                <a href="#Academia" class="mx-4 text-lg text-white hover:text-blue-500"> Academics </a>
+            </div>
+            <br>
+            <p class="text-white font-bold">THANK YOU !</p>
+
+
+        </div>
+
+        <hr class="my-6 border-gray-200 md:my-10 dark:border-gray-700" />
+
+        <div class="flex flex-col items-center sm:flex-row sm:justify-between">
+            <p class="text-sm text-gray-500 dark:text-gray-300">© Copyright 2024. All Rights Reserved.</p>
+
+            <div class="flex -mx-2">
+                <p class="text-white capitalize">this is a portfoloio site of s.Lokesh all rights are reserved by/to/for lokesh. There is no liability/warranty in any form for this page or for your device on which this page was opened.</p>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- FOOTER SECTION END -->
+
+
+
+<!-- BACK TO TOP BUTTON START -->
+<button id="backToTopBtn" class="back-to-top" onclick="backToTop()">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+    </svg>
+</button>
+<script>
+    function backToTop() {
+        if (window.scrollY != 0) {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    }
+
+    window.addEventListener('scroll', function () {
+        var backToTopBtn = document.getElementById('backToTopBtn');
+        if (window.scrollY > 300) {
+            backToTopBtn.classList.add('show');
+        } else {
+            backToTopBtn.classList.remove('show');
+        }
+    });
+</script>
+        <style>
+        .back-to-top {
+            position: fixed;
+            bottom: 4rem;
+            right: 4rem;
+            width: 3.5rem;
+            height: 3.5rem;
+            background-color: #4299e1;
+            color: white;
+            border-radius: 999px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: opacity 0.3s, transform 0.3s;
+            opacity: 0;
+            visibility: hidden;
+            z-index: 500;
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background-color: #2b6cb0;
+        }
+    </style>
+<!-- BACK TO TOP BUTTON END -->
+
+
+
+<!-- DOWNLOAD RESUME POPUP START -->
+<div class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 newsletter-popup" style="display: none;">
+    <div class="bg-white p-8 rounded-lg shadow-lg w-96 relative">
+        <button class="absolute top-0 right-0 p-2 text-gray-600 hover:text-gray-800" onclick="closeNewsletterPopup()" aria-label="Close">&times;</button>
+
+        <h3 class="flex items-center text-xl font-semibold text-gray-800 mb-4">
+            <i class="far fa-envelope mr-2"></i> Enter Your Email And I Shall Send My Resume Instantlly.
+        </h3>
+
+        <p class="text-gray-600 mb-4 capitalize">Don't Worry I Won't Spam Email. If In Case It Helps I Don't Even Store Your Email..</p>
+
+        <form action="send_resume.php" method="post" class="mb-4">
+            <input type="email" name="sendresumeemail" placeholder="Your Email" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-gray-400">
+            <button type="submit" class="w-full mt-4 bg-gray-800 text-white font-semibold py-2 px-4 rounded-md hover:bg-gray-700 focus:outline-none focus:bg-gray-700">Subscribe</button>
+        </form>
+
+        <p class="text-sm text-gray-600 newsletter-msg" id="newsletterMsg"></p>
+    </div>
+</div>
+
+<script>
+   document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById('newsletterForm').addEventListener('submit', function (event) {
+        event.preventDefault();
+        
+        const form = this;
+        const formData = new FormData(form);
+        fetch(form.action, {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            const messageElement = document.getElementById('newsletterMsg');
+            if (data.success) {
+                messageElement.classList.remove('text-red-600');
+                messageElement.classList.add('text-green-600');
+            } else {
+                messageElement.classList.remove('text-green-600');
+                messageElement.classList.add('text-red-600');
+            }
+            messageElement.textContent = data.message;
+            // Show the popup if there's any message
+            openNewsletterPopup();
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    });
+});
+</script>
+
+
+
+<script>
+   
+    const openNewsletterPopup = () => {
+        document.querySelector('.newsletter-popup').style.display = 'flex';
+    };
+    const closeNewsletterPopup = () => {
+        document.querySelector('.newsletter-popup').style.display = 'none';
+    };
+</script>
+<!-- DOWNLOAD RESUME POPUP END -->
+
+
+
+</body>
+</html>
